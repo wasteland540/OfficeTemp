@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/taskman.css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <link rel="stylesheet" href="css/angular-chart.css">
+   
+</head>
+
+<body ng-controller="tempController">
+
+    <div class="navbar navbar-default" id="navbar">
+        <div class="container" id="navbar-container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">
+                    <small>
+				<i class="glyphicon glyphicon glyphicon-log-out"></i>
+				ElzDev
+			</small>
+                </a>
+            </div>
+            
+            <!-- /.navbar-header -->
+            <div class="navbar-header pull-right" role="navigation">
+                <a href="https://github.com/wasteland540" target="_blank" class="btn btn-sm btn-danger nav-button-margin" style="color:#000000"> 
+                    <img src="img/GitHub-Mark-32px.png" width="25px" height="25px"></i>
+                    &nbsp;Github
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <blockquote>
+                <h1>Temperature Logger Application using Angular JS and Arduino</h1></blockquote>
+            <div class="col-sm-9">
+                <div ng-include src="'partials/temps.html'"></div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+  
+  <!-- Angular Google Chart -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/0.1.0/ng-google-chart.min.js" type="text/javascript"></script>
+  
+  <script type="text/javascript" src="app/app.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<div class="widget-box" id="recent-box" ng-controller="tempController">
+    <div class="widget-header header-color-blue">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="bigger lighter">
+                    <i class="glyphicon glyphicon-align-justify"></i>&nbsp;
+                    Office Temperature
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="widget-body">
+
+        <form ng-submit="getTempsDateRange()">
+
+            <div class="form-group">
+                <label>Date Range:</label>
+                
+                <md-datepicker ng-model="from" md-placeholder="Enter date"></md-datepicker>
+                <label>-</label>
+                <md-datepicker ng-model="to" md-placeholder="Enter date"></md-datepicker>
+
+                <button type="submit" class="btn btn-default">Query Temperature</button>
+            </div>
+
+        <form>
+        
+        <div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
+    </div>
+</div>
