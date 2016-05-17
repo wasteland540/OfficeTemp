@@ -7,6 +7,16 @@
                     Office Temperature
                 </h4>
             </div>
+            
+            <div class="col-sm-6">
+                Last Log Date: 
+                <label ng-bind="lastLogDate |  date:'dd.MM.yyyy HH:mm:ss'"></label>
+            </div>
+            
+            <div class="col-sm-6">
+                Average Temperature: 
+                <label ng-bind="averageTemp"></label>
+            </div>
         </div>
     </div>
 

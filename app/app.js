@@ -9,6 +9,9 @@ app.controller('tempController', function($scope, $http, $timeout) {
         diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
     return new Date(d.setDate(diff));
   }
+  
+  $scope.lastLogDate = new Date();
+  $scope.averageTemp = 0.0;
         
   //init date range
   $scope.from = getMonday(new Date());
@@ -41,9 +44,20 @@ app.controller('tempController', function($scope, $http, $timeout) {
   };
   
   function getTempsInRange(){
-        $http.post("ajax/getTempsByDate.php?from="+formatDate($scope.from) +"&to="+formatDate($scope.to)).success(function(data){           
-        var temps = data;
-        $scope.myChartObject.data.rows = createChartRows(temps);          
+        $http.post("ajax/getTempsByDate.php?from="+formatDate($scope.from) +"&to="+formatDate($scope.to)).success(function(data){     
+               
+        var temps = data.Temps;
+        $scope.myChartObject.data.rows = createChartRows(temps);      
+        
+        //set last log date
+        $scope.lastLogDate = Date.parse(data.LastLogDate);        
+        
+        var averageBuff = 0.0;
+        temps.forEach(function(element) {
+            averageBuff += parseFloat(element.Temp);
+        });
+        
+        averageBuff = averageBuff / (temps.length);
     })
     .error(function (error) {
         console.log(error);
@@ -78,5 +92,10 @@ app.controller('tempController', function($scope, $http, $timeout) {
     
     return d;
   }  
+  
+  function Round(num, places) 
+  { 
+      return +(Math.round(num + "e+" + places)  + "e-" + places);
+  }
 
 });
