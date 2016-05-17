@@ -58,6 +58,7 @@ app.controller('tempController', function($scope, $http, $timeout) {
         });
         
         averageBuff = averageBuff / (temps.length);
+        $scope.averageTemp = Round(averageBuff, 2);
     })
     .error(function (error) {
         console.log(error);
